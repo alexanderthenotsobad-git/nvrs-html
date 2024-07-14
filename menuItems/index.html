@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Menu Items</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Manage Menu Items</h2>
+        <form id="menu-item-form">
+            <div class="form-group">
+                <label for="item-name">Item Name:</label>
+                <input type="text" id="item-name" name="itemName" required>
+            </div>
+            <div class="form-group">
+                <label for="item-description">Item Description:</label>
+                <textarea id="item-description" name="itemDescription" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="picture">Picture (optional):</label>
+                <input type="file" id="picture" name="picture" accept="image/*">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="back-btn" onclick="history.back()">Back</button>
+                <button type="button" class="clear-btn" onclick="document.getElementById('menu-item-form').reset()">Clear</button>
+                <button type="button" class="find-btn" onclick="findMenuItem()">Find</button>
+                <button type="submit" class="submit-btn">Enter</button>
+                <button type="button" class="delete-btn" onclick="deleteMenuItem()" style="display: none;">Delete</button>
+            </div>
+        </form>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('menu-item-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Collect form data
+            const formData = new FormData(event.target);
+            // Send form data to backend
+            fetch('https://alexanderthenotsobad.us/api/menu_items', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Menu item added successfully!');
+                // Reset the form
+                event.target.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while adding the menu item.');
+            });
+        });
+
+        function findMenuItem() {
+            const itemName = document.getElementById('item-name').value;
+            const itemDescription = document.getElementById('item-description').value;
+            fetch(`https://alexanderthenotsobad.us/api/menu_items/find?name=${itemName}&description=${itemDescription}`)
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = '';
+                if (data.length > 1) {
+                    data.forEach(item => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.innerHTML = `<p>${item.name}: ${item.description} - $${item.price}</p>`;
+                        resultsDiv.appendChild(itemDiv);
+                    });
+                } else if (data.length === 1) {
+                    const item = data[0];
+                    document.getElementById('item-name').value = item.name;
+                    document.getElementById('item-description').value = item.description;
+                    document.getElementById('price').value = item.price;
+                    document.getElementById('delete-btn').style.display = 'inline-block';
+                } else {
+                    resultsDiv.innerHTML = '<p>No items found</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while finding the menu item.');
+            });
+        }
+
+        function deleteMenuItem() {
+            const itemName = document.getElementById('item-name').value;
+            fetch(`https://alexanderthenotsobad.us/api/menu_items/delete`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: itemName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Menu item deleted successfully!');
+                // Reset the form and hide the delete button
+                document.getElementById('menu-item-form').reset();
+                document.getElementById('delete-btn').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while deleting the menu item.');
+            });
+        }
+    </script>
+</body>
+</html>
