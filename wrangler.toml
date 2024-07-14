@@ -1,0 +1,7 @@
+name = "vrsprototype"
+main = "workers-site/index.js"
+account_id = "a0546c9fd86399142b8167d22d587e6cc067b"
+workers_dev = true
+
+[site]
+bucket = "./workers-site"
