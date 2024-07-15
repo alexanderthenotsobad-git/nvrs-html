@@ -1,14 +1,24 @@
 #!/bin/bash
 
-set -e
-
+# Check if commit message and compatibility date are provided
 if [ -z "$1" ]; then
   echo "No commit message provided"
   exit 1
 fi
 
-git add .
-git commit -m "$1"
-git push origin main
+if [ -z "$2" ]; then
+  echo "No compatibility date provided"
+  exit 1
+fi
 
-wrangler deploy
+# Assign arguments to variables
+COMMIT_MESSAGE=$1
+COMPATIBILITY_DATE=$2
+
+# Commit and push changes to GitHub
+git add .
+git commit -m "$COMMIT_MESSAGE"
+git push origin main  # Change 'main' to your branch name if different
+
+# Deploy to Cloudflare using Wrangler with compatibility date
+wrangler deploy --compatibility-date "$COMPATIBILITY_DATE"
