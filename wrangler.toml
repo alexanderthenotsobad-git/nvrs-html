@@ -1,7 +1,8 @@
 name = "vrsprototype"
 main = "workers-site/index.js"
-account_id = "a0546c9fd86399142b8167d22d587e6cc067b"
+account_id = "1ff4c07cf2d9257ced232d5cf6abba1a"
 workers_dev = true
 
 [site]
 bucket = "./workers-site"
+compatibility_date = "2024-07-14"
