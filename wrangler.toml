@@ -4,7 +4,7 @@ account_id = "1ff4c07cf2d9257ced232d5cf6abba1a"
 compatibility_date = "2024-07-14"
 
 [site]
-bucket = "./out"
+bucket = "./"
 #entry-point = "."
 
 [env.production]
