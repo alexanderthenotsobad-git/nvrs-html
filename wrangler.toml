@@ -5,7 +5,7 @@ compatibility_date = "2024-07-14"
 
 [site]
 bucket = "./out"
-entry-point = "."
+#entry-point = "."
 
 [env.production]
 workers_dev = false
