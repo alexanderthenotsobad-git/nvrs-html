@@ -1,10 +1,9 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import { useRouter } from 'next/router';
+'use client'; // This should be at the very top
 
-'use client';
+import { useRouter } from 'next/navigation'; // Use next/navigation for client-side routing
+import Image from 'next/image';
+import styles from './page.module.css';
 
-// app/page.js
 export default function HomePage() {
   const router = useRouter();
 
