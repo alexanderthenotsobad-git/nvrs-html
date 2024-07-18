@@ -25,5 +25,5 @@ git push origin main  # Change 'main' to your branch name if different
 
 # Deploy to Cloudflare using Wrangler with compatibility date
 npm install
-npm build
+npm run build
 wrangler deploy --compatibility-date "$COMPATIBILITY_DATE"
