@@ -33,4 +33,4 @@ cp -r .next /var/www/html/workers-site/
 # Change to workers-site directory
 cd /var/www/html/workers-site
 
-wrangler deploy --compatibility-date "$COMPATIBILITY_DATE" 
+wrangler deploy /var/www/html/workers-site/index.js --compatibility-date "$COMPATIBILITY_DATE" 
