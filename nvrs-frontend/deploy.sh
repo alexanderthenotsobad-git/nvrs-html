@@ -26,4 +26,11 @@ git push origin main  # Change 'main' to your branch name if different
 # Deploy to Cloudflare using Wrangler with compatibility date
 npm install
 npm run build
+
+# Copy built static files to workers-site directory
+cp -r .next /var/www/html/workers-site/
+
+# Change to workers-site directory
+cd /var/www/html/workers-site
+
 wrangler deploy --compatibility-date "$COMPATIBILITY_DATE"

@@ -7,13 +7,13 @@ compatibility_date = "2024-07-14"
 [build]
 
 command = "npm run build"
-cwd = "./" # Run the build command in the nvrs-frontend directory
+cwd = "/var/www/html/nvrs-frontend/" # Run the build command in the nvrs-frontend directory
 
 [site]
-bucket = "./.next" 
-#entry-point = "workers-site" # Optional if you're not using a custom build
+bucket = "/var/www/html/workers-site" 
+# entry-point = "workers-site" # Optional if you're not using a custom build
 
 [env.production]
 workers_dev = true
-route = "vrsprototype.com"
+route = "vrsprototype.com/*"
 zone_id = "fb062b8145b27c01ebef70d117512f4c"
