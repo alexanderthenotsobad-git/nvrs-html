@@ -31,10 +31,10 @@ npm run build
 cp -r .next /var/www/html/workers-site/.next
 
 # Copy additional static files if necessary (e.g., public directory)
-cp -r public/* /var/www/html/workers-site/
+cp -r /var/www/html/nvrs-frontend/public/* /var/www/html/workers-site/public/
 
 # Copy the app directory to workers-site directory
-cp -r app/* /var/www/html/workers-site/app/
+cp -r /var/www/html/nvrs-frontend/app/* /var/www/html/workers-site/app/
 
 
 # Change to workers-site directory
