@@ -11,7 +11,7 @@ cwd = "/var/www/html/nvrs-frontend/" # Run the build command in the nvrs-fronten
 
 [site]
 bucket = "/var/www/html/workers-site" 
-entry-point = "/var/www/html/workers-site/index.js"  # Full path to your worker script
+# entry-point = "/var/www/html/workers-site/index.js"  # Full path to your worker script
 
 [env.production]
 workers_dev = true
