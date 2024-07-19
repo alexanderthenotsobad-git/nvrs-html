@@ -10,7 +10,7 @@ command = "npm run build"
 cwd = "/var/www/html/nvrs-frontend/" # Run the build command in the nvrs-frontend directory
 
 [site]
-bucket = "/var/www/html/workers-site" 
+bucket = "/var/www/html/workers-site/.next" 
 
 [env.production]
 workers_dev = true

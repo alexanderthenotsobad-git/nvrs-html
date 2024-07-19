@@ -28,9 +28,9 @@ npm install
 npm run build
 
 # Copy built static files to workers-site directory
-cp -r .next /var/www/html/workers-site/
+cp -r .next /var/www/html/workers-site/.next
 
 # Change to workers-site directory
 cd /var/www/html/workers-site
 
-wrangler deploy /var/www/html/workers-site/index.js --name "vrsprotoype" --compatibility-date "$COMPATIBILITY_DATE" 
+npx wrangler deploy /var/www/html/workers-site/index.js --name "vrsprotoype" --compatibility-date "$COMPATIBILITY_DATE" 
