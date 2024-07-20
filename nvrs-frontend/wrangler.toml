@@ -1,6 +1,6 @@
 name = "vrsprototype"
 type = "javascript"
-main = "/var/www/html/workers-site/index.js"
+main = "/var/www/html/nvrs-frontend/app/index.js"
 account_id = "1ff4c07cf2d9257ced232d5cf6abba1a"
 compatibility_date = "2024-07-14"
 

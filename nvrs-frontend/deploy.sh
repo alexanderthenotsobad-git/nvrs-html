@@ -40,4 +40,4 @@ cp -r /var/www/html/nvrs-frontend/app/* /var/www/html/workers-site/app/
 # Change to workers-site directory
 cd /var/www/html/workers-site
 
-npx wrangler deploy /var/www/html/workers-site/index.js --name "vrsprotoype" --compatibility-date "$COMPATIBILITY_DATE" 
+npx wrangler deploy /var/www/html/nvrs-frontend/app/index.js --name "vrsprotoype" --compatibility-date "$COMPATIBILITY_DATE" 
