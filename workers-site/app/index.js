@@ -1,4 +1,4 @@
-import index from "./app/index.html";
+import container from "";
 
 
 /**
@@ -18,8 +18,8 @@ export default {
 
 		if (url.pathname === "/api") {
 			// You could also call a third party API here
-			const data = await import("./data.js");
-			return Response.json(data);
+			//const data = await import("./data.js");
+			//return Response.json(data);
 		}
 		return new Response(index, {
 			headers: {
