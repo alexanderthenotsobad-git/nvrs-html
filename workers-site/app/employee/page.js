@@ -1,7 +1,7 @@
 "use client"; // Add this directive at the top
 
 import Head from 'next/head';
-import styles from '../../styles/Employee.module.css';
+import styles from './styles/employee.css';
 
 export default function Employee() {
   return (

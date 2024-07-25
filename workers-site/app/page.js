@@ -8,7 +8,7 @@ export default function HomePage() {
   const router = useRouter();
 
   const handleEmployeeClick = () => {
-    router.push('/menuItems');
+    router.push('/employee');
   };
 
   const handleClientClick = () => {
