@@ -17,7 +17,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Welcome to Restaurant App</h1>
+      <h1>Welcome to Virtual Restaurant Solutions</h1>
       <div className="login-options">
         <button className="login-button" onClick={handleEmployeeClick}>
           Employee
