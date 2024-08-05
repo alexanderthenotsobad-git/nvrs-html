@@ -1,1 +1,25 @@
-{"type": "commonjs"}
+{
+    "name": "workers-site",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@cloudflare/next-on-pages": "^1.12.1",
+        "next": "14.2.5",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "resolutions": {
+        "react-dom": "18.3.1"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "eslint-config-next": "14.2.5",
+        "eslint-plugin-next-on-pages": "^1.12.1"
+    }
+}

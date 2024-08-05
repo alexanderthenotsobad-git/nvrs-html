@@ -8,8 +8,7 @@ export default function Employee() {
     <div className={styles.container}>
       <Head>
         <title>Employee Dashboard</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./style/employee.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />        
       </Head>
       <h1>Employee Dashboard</h1>
       <div className={styles.employeeOptions}>
